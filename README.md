@@ -1,4 +1,3 @@
-````markdown
 # 📄 Extracteur de Données de Factures
 
 > Extraction automatique depuis des factures scannées — OCR + Regex + Streamlit.
@@ -79,4 +78,3 @@ Ce projet démontre comment automatiser l'extraction d'informations à partir de
 <img width="800" height="847" alt="Table des matières" src="https://github.com/user-attachments/assets/ed6810fe-0d2a-4137-9481-a7a3359d81d3" />
 
 [![Rapport PDF](https://img.shields.io/badge/Rapport-PDF-red?logo=adobeacrobatreader)](https://github.com/user-attachments/files/27897380/Projet_Extraction.pdf)
-````
