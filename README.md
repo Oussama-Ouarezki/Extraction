@@ -1,38 +1,42 @@
-# Invoice Data Extractor
+# 📄 Extracteur de Données de Factures
 
-> Automated extraction of structured data from scanned invoice images using OCR + regex.
+> Extraction automatique depuis des factures scannées — OCR + Regex + Streamlit.
 
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![Tesseract](https://img.shields.io/badge/OCR-Tesseract-orange)
-![Streamlit](https://img.shields.io/badge/UI-Streamlit-red)
-
-## What it does
-
-Takes a folder of scanned invoice images → preprocesses them → runs OCR → extracts key fields (invoice number, date, amounts, tax IDs, IBAN, seller & client info) → exports to **CSV**, **JSON**, and **SQLite**.
+![Python](https://img.shields.io/badge/Python-3.x-blue) ![Tesseract](https://img.shields.io/badge/OCR-Tesseract-orange) ![Streamlit](https://img.shields.io/badge/UI-Streamlit-red)
 
 ## Pipeline
 
-| Step | Tool | Description |
-|------|------|-------------|
-| Image preprocessing | Pillow | Brightness, grayscale, binarization |
-| OCR | pytesseract | Zone-based text extraction |
-| Data extraction | `re` module | Regex patterns per field |
-| Export | pandas / sqlite3 | CSV, JSON, SQLite output |
+```
+Image scannée → Prétraitement (Pillow) → OCR par zones (pytesseract) → Extraction regex → CSV / JSON / SQLite
+```
 
-## Install
+## Installation & lancement
 
 ```bash
 pip install pillow pytesseract pandas streamlit
-```
-
-## Run
-
-```bash
 streamlit run interface.py
 ```
 
-> Requires [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) installed and added to PATH.
+## Données extraites
 
-## Full report
+| Champ | Champ |
+|---|---|
+| Numéro de facture | IBAN |
+| Date | Tax ID (vendeur & client) |
+| Montant net / TVA / brut | Nom & adresse (vendeur & client) |
 
-📄 [View PDF documentation](https://github.com/user-attachments/files/27897380/Projet_Extraction.pdf)
+✅ 0 valeurs manquantes sur l'ensemble du jeu de données testé.
+
+## Extensions possibles
+
+| Direction | Description |
+|---|---|
+| 🤖 LLM Vision | Remplacer l'OCR par GPT-4o / Claude pour lire les images directement |
+| 🧠 Extraction NLP | Remplacer les regex par un LLM pour des documents non structurés |
+| ☁️ API REST | Exposer via FastAPI pour intégration ERP / comptabilité |
+| 🗄️ ETL + BI | Connecter à PostgreSQL + Power BI pour un tableau de bord temps réel |
+| 🌍 Multi-format | Étendre aux PDFs natifs, factures multilingues, autres documents |
+
+## 📄 Rapport complet
+
+[![Rapport PDF](https://img.shields.io/badge/Rapport-PDF-red?logo=adobeacrobatreader)](https://github.com/user-attachments/files/27897380/Projet_Extraction.pdf)
